@@ -1,24 +1,21 @@
 namespace Ahorcado_danielepelbaum_theoglinsky.Models;
 
-public class PalabrasAhorcado()
+public class PalabrasAhorcado
     {
         private List<string> palabras;
 
-        private PalabrasAhorcado()
+        public PalabrasAhorcado()
         {
-            palabras = new List<string>()
-            {
-            "DANIELSON";
-            "YUPANQUI";
-            "JABULANI";
-            "AKSARLIAN";
-            "ADOBATTOIDE";
-            "LEONIDAS";
-            "DUCATENSZEILER";
-            "UVAPETKIS";
-            "";
-            "";
-            }
+            palabras = new List<string>();
+            palabras.Add("DANIELSON");
+            palabras.Add("YUPANQUI");
+            palabras.Add("JABULANI");
+            palabras.Add("AKSARLIAN");
+            palabras.Add("ADOBATTOIDE");
+            palabras.Add("DUCATENSZEILER");
+            palabras.Add("UVAPETKIS");
+            palabras.Add("CHERNOPOPO");
+            palabras.Add("OMAMATHEUS");
         }
         public string ObtenerPalabra()
         {

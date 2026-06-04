@@ -3,13 +3,15 @@
 }
 <h1>Bienvenido al ahorcado uvita 🍇🍇🍇</h1>
 <p>Este juego consiste en adivinar una palabra arriesgando letras. Cuando arriesgas una letra, te vamos a decir si esa letra está en la palabra y en qué lugar o si no está. También vas a poder ver la cantidad de letras de la palabra. Cuando creas saber cuál es la palabra, podés arriesgar. ¡Mucha suerte!</p>
-<div>
-    <form>
-        <input type="hidden" name="palabra" value='@ViewBag.palabra'>
-        <input type="text" max="1"
-    </form>
-</div>
-<p>cantidad de intentos restantes: </p>
-<div>
-
-</div>
+<section>
+    <div>
+        <div id="palabraEncriptada"></div>
+        <form>
+            <input type="hidden" name="palabra" value='@ViewBag.palabra' id="palabra">
+            <input type="text" max="1" name="letra" placeholder="Letra" id="idLetra">
+            <button onclick="Arriesgar(letra)">ARRIESGAR</button>
+        </form>
+    </div>
+    <p>CANTIDAD DE INTENTOS RESTANTES: </p>
+    <div id="mensaje"></div>
+</section>

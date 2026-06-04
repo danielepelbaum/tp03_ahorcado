@@ -1,4 +1,21 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿let palabra = document.getElementById("palabra").value;
+let palabraEncriptada = document.getElementById("palabraEncriptada");
+let palabraOculta = "";
+for (let i = 0; i < palabra.length; i++) {
+    palabraOculta = palabraOculta + "-";
+}
 
-// Write your JavaScript code.
+palabraEncriptada.innerHTML = palabraOculta;
+
+function Arriesgar(){
+    const letra = document.getElementById("idLetra").value;
+    console.log(letra);
+    for (let i = 0; i < palabra.length; i++){
+        if (palabra[i] == letra){
+            nuevaPalabraOculta += palabra[i];
+        }
+        else{
+            nuevaPalabraOculta += palabraOculta[i];
+        }
+    }
+}
