@@ -6,12 +6,11 @@
 <section>
     <div>
         <div id="palabraEncriptada"></div>
-        <form>
-            <input type="hidden" name="palabra" value='@ViewBag.palabra' id="palabra">
-            <input type="text" max="1" name="letra" placeholder="Letra" id="idLetra">
-            <button onclick="Arriesgar(letra)">ARRIESGAR</button>
-        </form>
+        <input type="hidden" name="palabra" value='@ViewBag.palabra' id="palabra">
+        <input type="text" name="letra" placeholder="Letra" id="idLetra" maxlength="1">
+        <button onclick="Arriesgar()">ARRIESGAR</button>
     </div>
-    <p>CANTIDAD DE INTENTOS RESTANTES: </p>
+    <p>CANTIDAD DE INTENTOS RESTANTES:</p>
+    <div id="intentos"></div>
     <div id="mensaje"></div>
 </section>
