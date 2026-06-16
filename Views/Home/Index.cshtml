@@ -9,7 +9,7 @@
         <input type="hidden" name="palabra" value='@ViewBag.palabra' id="palabra">
         <input type="text" name="letra" placeholder="Letra" id="idLetra" maxlength="1">
         <button onclick="Arriesgar()">ARRIESGAR</button>
-    </div>
+        <a class="boton" href='@Url.Action("reiniciar", "Home")'>Volver a jugar</a>    </div>
     <p>CANTIDAD DE INTENTOS RESTANTES:</p>
     <div id="intentos"></div>
     <div id="mensaje"></div>

@@ -20,6 +20,10 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Reiniciar(){
+        return RedirectToAction("index");
+    }
+
     public IActionResult Privacy()
     {
         return View();

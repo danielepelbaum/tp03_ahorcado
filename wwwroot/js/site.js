@@ -1,41 +1,74 @@
-﻿let palabraOriginal = document.getElementById("palabra").value;
-let palabraEncriptada = document.getElementById("palabraEncriptada");
+﻿let intentosDisponibles = 10;
+let palabraOriginal = document.getElementById("palabra").value;
 let palabraOculta = "";
-for (let i = 0; i < palabraOriginal.length; i++) {
-    palabraOculta = palabraOculta + "-";
+for(let i = 0; i < palabraOriginal.length; i++)
+{
+    palabraOculta += "-";
 }
 
-let intentos = document.getElementById("intentos");
-let intentosDisponibles = 10;
-palabraEncriptada.innerHTML = palabraOculta;
-intentos.innerHTML = intentosDisponibles;
+document.getElementById("palabraEncriptada").innerHTML = palabraOculta;
+document.getElementById("intentos").innerHTML =
+"Intentos restantes: " + intentosDisponibles;
+function Arriesgar()
+{
+    let letra = document.getElementById("idLetra").value.toUpperCase();
 
-function Arriesgar(){
-    let letra = document.getElementById("idLetra").value;
-    letra = letra.toUpperCase();
-    let nuevaPalabraOculta ="";
+    let nuevaPalabraOculta = "";
+
     let bien = false;
-    for (let i = 0; i < palabraOriginal.length; i++){
-        if (palabraOriginal[i] == letra){
+
+    let mensaje = document.getElementById("mensaje");
+
+    for(let i = 0; i < palabraOriginal.length; i++)
+    {
+        if(palabraOriginal[i] == letra)
+        {
             nuevaPalabraOculta += palabraOriginal[i];
+
             bien = true;
         }
-        else if (palabraOculta[i]){
+        else
+        {
             nuevaPalabraOculta += palabraOculta[i];
         }
     }
-    if(bien == false){
-        intentosDisponibles -= 1;
-    }
-    intentos.innerHTML = intentosDisponibles;
     palabraOculta = nuevaPalabraOculta;
-    palabraEncriptada.innerHTML = palabraOculta;
-    if(palabraOculta.includes("-") == false){
-        let mensaje = document.getElementById("mensaje");
+    document.getElementById("palabraEncriptada").innerHTML =
+    palabraOculta;
+    if(bien == false && intentosDisponibles > 0)
+    {
+        intentosDisponibles--;
+    }
+    document.getElementById("intentos").innerHTML =
+    "Intentos restantes: " + intentosDisponibles;
+    if(palabraOculta.includes("-") == false)
+    {
         mensaje.innerHTML = "GANASTE";
+
+        document.getElementById("idLetra").disabled = true;
     }
-    if(intentosDisponibles == 0){
-        mensaje.innerHTML = "ALPISTEPERDISTE";
-        
+    if(intentosDisponibles <= 0 )
+    {
+        mensaje.innerHTML = "PERDISTE";
+
+        document.getElementById("idLetra").disabled = true;
     }
+    document.getElementById("idLetra").value = "";
+
+}
+
+ function VolverAJugar()
+{
+    intentosDisponibles = 10;
+    palabraOculta = "";
+    for(let i = 0; i < palabraOriginal.length; i++)
+    {
+        palabraOculta += "-";
+    }
+    document.getElementById("palabraEncriptada").innerHTML = palabraOculta;
+    document.getElementById("intentos").innerHTML =
+    "Intentos restantes: " + intentosDisponibles;
+    document.getElementById("mensaje").innerHTML = "";
+    document.getElementById("idLetra").value = "";
+    document.getElementById("idLetra").disabled = false;
 }
